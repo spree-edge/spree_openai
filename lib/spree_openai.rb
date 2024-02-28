@@ -1,0 +1,5 @@
+require 'spree_core'
+require 'spree_extension'
+require 'spree_openai/engine'
+require 'spree_openai/version'
+require 'spree_openai/configuration'
