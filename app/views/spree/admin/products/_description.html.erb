@@ -1,0 +1,7 @@
+<%= turbo_frame_tag 'productDescriptionFrame' do %>
+  <%= text_area_tag 'product[description]', description, rows: (@product.has_variants? ? '30' : '29'), class: "form-control #{'spree-rte' if product_wysiwyg_editor_enabled? }" %>
+<% end %>
+
+<script>
+  document.querySelector('.close').click();
+</script>

@@ -1,0 +1,22 @@
+<% content_for :page_title do %>
+  <%= Spree.t(:open_ai_heading, scope: :open_ai) %>
+<% end %>
+
+<%= form_with(model: @open_ai, url: admin_open_ai_path, method: :put, local: true) do |f| %>
+  <div class="row">
+    <div class="col-6">
+      <%= f.field_container :api_token do %>
+        <%= f.label :api_token, Spree.t(:api_token, scope: :open_ai) %>
+        <%= f.text_field :api_token, class: 'form-control mt-2' %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col mt-3">
+      <div class="form-actions">
+        <%= f.button Spree.t('actions.update'), class: 'btn btn-primary' %>
+      </div>
+    </div>
+  </div>
+<% end %>

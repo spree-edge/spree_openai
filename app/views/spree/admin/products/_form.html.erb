@@ -19,13 +19,14 @@
       </div>
 
       <div data-hook="admin_product_form_description">
-       
         <%= f.field_container :description do %>
           <div class="d-flex justify-content-between align-items-center">
             <%= f.label :description, Spree.t(:description), class:'mb-0' %>
-            <a href="#" id="dropdown-toggle-link">
-              <%= image_tag('backend-custom-magic.svg', alt: 'Magic', width: '20px', height: '20px', class: 'mr-1 mb-1') %>Generate with AI
-            </a>
+            <% if Flipper.enabled?(:openai, current_store.try(:id)) %>
+              <a href="#" id="dropdown-toggle-link">
+                <%= image_tag('backend-custom-magic.svg', alt: 'Magic', width: '20px', height: '20px', class: 'mr-1 mb-1') %> <%= Spree.t('open_ai.generate_with_ai') %>
+              </a>
+            <% end %>
           </div>  
           <%= turbo_frame_tag 'productDescriptionFrame' do %>
             <%= f.text_area :description, { rows: "#{unless @product.has_variants? then '29' else '30' end}", class: "form-control #{"spree-rte" if product_wysiwyg_editor_enabled? }" } %>
@@ -336,24 +337,3 @@
 
   </div>
 </div>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("dropdown-toggle-link").addEventListener("click", function(e) {
-      e.preventDefault(); // Prevent default link behavior
-
-      var dropdownForm = document.getElementById("dropdown-form");
-
-      // Toggle visibility of the dropdown form
-      if (dropdownForm.style.display === "block") {
-        dropdownForm.style.display = "none";
-      } else {
-        dropdownForm.style.display = "block";
-      }
-    });
-    document.getElementById("generate-box-close").addEventListener("click", function(e) {
-      e.preventDefault();
-      document.getElementById("dropdown-form").style.display = "none";
-    });
-  });
-</script>

@@ -2,4 +2,12 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  spree:
+    open_ai:
+      open_ai_heading: Open AI
+      api_token: Api Token
+      successfully_updated: Open AI Creds Successfully Updated
+      generate_with_ai: Generate with AI
+      generate_product_description: Generate Product Description
+      translate_with_ai: Translate with AI
+      rate_limit_error: Rate limit reached. Please try after 1 minute or upgrate open ai plan
