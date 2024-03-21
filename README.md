@@ -1,6 +1,33 @@
-# SpreeOpenai
+# Spree Openai
 
-Introduction goes here.
+The Spree Open AI Extension is designed to enhance your Spree store with AI-powered features for generating product descriptions and translating content into multiple languages.
+
+## Features
+
+### 1. Generate Content for Product Descriptions:
+Automatically generate product descriptions based on specified parameters.
+
+#### Usage:
+1. Navigate to the product's edit page.
+2. Click on the "Generate with AI" link.
+3. A dropdown menu will appear with the following options:
+    - **Features and Keywords** - Generate product descriptions based on predefined features and keywords.
+    - **Tone of Voice** - Select the desired tone (formal, casual, etc.) for the generated content.
+    - **Custom Tone of Voice** - Define a custom tone of voice for the generated content to match specific language preferences or branding guidelines.
+    - **Special Instructions** - Provide additional guidelines or requirements for generating the product description.
+4. Choose the desired option and fill in any required information.
+5. Click on the "Generate" button.
+6. The description will be automatically generated and filled in the product's description field.
+
+### 2. Translate Content:
+Seamlessly translate content from English to other languages using AI.
+
+#### Usage:
+1. Go to the translations page.
+2. Find the field you want to translate.
+3. Fill in the content in English.
+4. Click on the "Translate with AI" link next to the field.
+5. The content will be translated from English to all other supported languages.
 
 ## Installation
 
@@ -25,6 +52,14 @@ Introduction goes here.
 4. Restart your server
 
   If your server was running, restart it so that it can find the assets properly.
+
+## Integration
+
+To enable this integration:
+
+1. Go to the integrations page in your store's settings.
+2. Configure the API key for the Spree Open AI Extension.
+3. Once configured, the integration will be enabled and ready to use.
 
 ## Testing
 
