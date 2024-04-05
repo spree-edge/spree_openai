@@ -1,36 +1,40 @@
-<div id="dropdown-form" style="display: none;" class="openai-dropdown dropdown-menu p-0 rounded shadow">
-  <div class="d-flex bg-primary px-3 py-2 justify-content-between align-items-center rounded-top">
-    <h5 class="text-white mb-0" id="">Generate Product Description</h5>
-    <button type="button" id="generate-box-close" class="close text-white" data-dismiss="modal" aria-label="Close">
-      <%= image_tag('backend-custom-close.svg', alt: 'close', width: '18px', height: '18px') %>
-    </button>
-  </div>
-  <div class="p-3">
-    <%= form_with(url: generate_description_admin_product_path(@product.id), method: :post, remote: true) do |form| %>
-    <div class="mb-2">
-      <%= form.label :features_and_keywords, 'Features and keywords', class: 'col-form-label pt-0 font-size-14 ' %>
-      <%= form.text_area :features_and_keywords, class: 'form-control', placeholder: 'e.g organic cotton, relaxed fit.', required: true %>
-    </div>
+<div class="modal fade" id="generateDescriptionModal" tabindex="-1" aria-labelledby="generateDescriptionModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white pt-0">
+        <h5 class="modal-title" id="generateDescriptionModalLabel"><%= Spree.t('open_ai.generate_product_description') %></h5>
+        <button type="button" id="generate-box-close" class="close text-white" data-dismiss="modal" aria-label="Close">
+          <%= image_tag('backend-custom-close.svg', alt: 'close', width: '18px', height: '18px') %>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= form_with(url: generate_description_admin_product_path(@product.id), method: :post, remote: true) do |form| %>
+        <div class="mb-2">
+          <%= form.label :features_and_keywords, 'Features and keywords', class: 'col-form-label pt-0 ' %>
+          <%= form.text_area :features_and_keywords, class: 'form-control', placeholder: 'e.g organic cotton, relaxed fit.', required: true %>
+        </div>
 
-    <div class="mb-2">
-      <%= form.label :tone_of_voice, 'Tone of Voice', class: 'col-form-label font-size-14 ' %>
-      <%= form.select :tone_of_voice, options_for_select(['Expert', 'Daring', 'Playful', 'Sophisticated', 'Persuasive', 'Supportive']), { prompt: 'Select an option' }, class: 'form-control' %>
-    </div>
+        <div class="mb-2">
+          <%= form.label :tone_of_voice, 'Tone of Voice', class: 'col-form-label' %>
+          <%= form.select :tone_of_voice, options_for_select(['Expert', 'Daring', 'Playful', 'Sophisticated', 'Persuasive', 'Supportive']), { prompt: 'Select an option' }, class: 'form-control' %>
+        </div>
 
-    <div class="mb-2">
-      <%= form.label :custom_tone_of_voice, 'Custom tone of voice:', class: 'col-form-label font-size-14 ' %>
-      <%= form.text_field :custom_tone_of_voice, class: 'form-control', placeholder: 'e.g Optimistic' %>
-    </div>
+        <div class="mb-2">
+          <%= form.label :custom_tone_of_voice, 'Custom tone of voice:', class: 'col-form-label' %>
+          <%= form.text_field :custom_tone_of_voice, class: 'form-control', placeholder: 'e.g Optimistic' %>
+        </div>
 
-    <div class="mb-3">
-      <%= form.label :special_instructions, 'Special instructions:', class: 'col-form-label font-size-14' %>
-      <%= form.text_field :special_instructions, class: 'form-control', placeholder: 'e.g replace some words with emoji' %>
-    </div>
+        <div class="mb-3">
+          <%= form.label :special_instructions, 'Special instructions:', class: 'col-form-label' %>
+          <%= form.text_field :special_instructions, class: 'form-control', placeholder: 'e.g replace some words with emoji' %>
+        </div>
 
-    <div class="generate btn bg-primary w-100 p-0">
-      <%= image_tag('backend-custom-white-magic.svg', alt: 'Magic icon', width: '20px', height: '20px') %>
-      <%= form.submit 'Generate', class: 'btn text-white pl-0' %>
+        <div class="generate btn bg-primary w-100 p-0">
+          <%= image_tag('backend-custom-white-magic.svg', alt: 'Magic icon', width: '20px', height: '20px') %>
+          <%= form.submit 'Generate', class: 'btn text-white pl-0' %>
+        </div>
+        <% end %>
+      </div>
     </div>
-  <% end %>
   </div>
 </div>

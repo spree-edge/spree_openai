@@ -56,22 +56,3 @@ document.addEventListener("turbo:load", function() {
     });
   }
 });
-
-document.addEventListener("turbo:load", function() {
-  document.getElementById("dropdown-toggle-link").addEventListener("click", function(e) {
-    e.preventDefault(); // Prevent default link behavior
-
-    var dropdownForm = document.getElementById("dropdown-form");
-
-    // Toggle visibility of the dropdown form
-    if (dropdownForm.style.display === "block") {
-      dropdownForm.style.display = "none";
-    } else {
-      dropdownForm.style.display = "block";
-    }
-  });
-  document.getElementById("generate-box-close").addEventListener("click", function(e) {
-    e.preventDefault();
-    document.getElementById("dropdown-form").style.display = "none";
-  });
-});

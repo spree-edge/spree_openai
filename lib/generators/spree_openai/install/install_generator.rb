@@ -11,10 +11,6 @@ module SpreeOpenai
         run 'bundle exec rake railties:install:migrations FROM=spree_openai'
       end
 
-      def add_stylesheets
-        inject_into_file 'vendor/assets/stylesheets/spree/backend/all.css', " *= require spree/backend/openai_backend\n", :before => /\*\//, :verbose => true
-      end
-
       def run_migrations
         run_migrations = options[:migrate] || ['', 'y', 'Y'].include?(ask('Would you like to run the migrations now? [Y/n]'))
         if run_migrations
