@@ -17,11 +17,9 @@
           <tr id="translates_field_row" data-hook="translates_field_row" data-field="<%= field %>">
             <td class="text-left" style="min-width: 12.5rem; position: absolute; background-color: white; height: 3.5rem">
               <span><%= Spree.t(field) %></span>
-              <% if Flipper.enabled?(:openai, current_store.try(:id)) %>
-                <p><a href="#" data-field="<%= field %>" class="translate-link">
-                  <%= image_tag('backend-custom-magic.svg', alt: 'Magic', width: '20px', height: '20px', class: 'mr-1 mb-1') %> <%= Spree.t('open_ai.translate_with_ai') %>
-                </a></p>
-              <% end %>
+              <p><a href="#" data-field="<%= field %>" class="translate-link">
+                <%= image_tag('backend-custom-magic.svg', alt: 'Magic', width: '20px', height: '20px', class: 'mr-1 mb-1') %> <%= Spree.t('open_ai.translate_with_ai') %>
+              </a></p>
             </td>
             <td style="min-width: 12.5rem; display: block; height: 100%"></td>
             <% locales.each do |locale| %>
