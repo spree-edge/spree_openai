@@ -1,7 +1,6 @@
 module Spree
   module Admin
     class OpenAisController < Spree::Admin::BaseController
-      include EnsureOpenai
 
       before_action :find_open_ai, only: [:edit, :update]
 
